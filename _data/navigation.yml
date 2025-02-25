@@ -1,0 +1,10 @@
+- name: User Guide
+  link: /docs/user-guide
+- name: Admin Guide
+  link: /docs/admin-guide
+- name: Hosting Guide
+  link: /docs/hosting-guide
+- name: API Guide
+  link: /docs/api-guide
+- name: Contributor Guide
+  link: /docs/contributor-guide

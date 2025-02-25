@@ -19,12 +19,12 @@
 # in the templates via {{ site.myvariable }}.
 
 title: PINN
-email: 老张@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  这是老张的PINN项目介绍
+  Documents for my work.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alionfan.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  AlionFan
+markdown: kramdown
 
 # Build settings
 theme: minima
