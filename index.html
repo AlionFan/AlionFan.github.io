@@ -1,497 +1,1138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alion Fan | AI Researcher</title>
-    <meta name="description" content="Personal academic website of Alion Fan, AI Researcher focusing on Text2Motion and Generative AI.">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Orbitron & JetBrains Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            dark: '#0f172a',
-                            light: '#1e293b',
-                            accent: '#06b6d4', // Cyan
-                            purple: '#8b5cf6', // Violet
-                            green: '#10b981',  // Emerald for success/news
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        tech: ['Orbitron', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'cursor': 'cursor .75s step-end infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        cursor: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
+    <title>AlionFan | GitHub Page</title>
+    <meta name="description" content="AlionFan 的个人 GitHub Page：AI 实践、机器人控制、数据分析与 TrainBrain 认知训练项目。">
+    <meta property="og:title" content="AlionFan | GitHub Page">
+    <meta property="og:description" content="AI 实践、机器人控制、数据分析与 TrainBrain 认知训练项目。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alionfan.github.io/">
+    <meta property="og:image" content="./trainbrain-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --bg: #f6f8fb;
+            --surface: #ffffff;
+            --surface-2: #eef3f7;
+            --ink: #172033;
+            --muted: #5f6d7e;
+            --line: #d8e1ea;
+            --blue: #4f6df5;
+            --blue-dark: #2746c7;
+            --green: #148c70;
+            --coral: #ec6b55;
+            --amber: #c58721;
+            --shadow: 0 18px 50px rgba(24, 42, 67, 0.12);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #050505;
-            color: #e2e8f0;
+            margin: 0;
+            background:
+                linear-gradient(90deg, rgba(79, 109, 245, 0.06) 1px, transparent 1px),
+                linear-gradient(rgba(20, 140, 112, 0.04) 1px, transparent 1px),
+                var(--bg);
+            background-size: 44px 44px;
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            letter-spacing: 0;
             overflow-x: hidden;
         }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #06b6d4; 
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        /* Glassmorphism Card Utility */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        img {
+            display: block;
+            max-width: 100%;
         }
 
-        /* Gradient Text */
-        .text-gradient {
-            background: linear-gradient(to right, #22d3ee, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .page {
+            width: min(1160px, calc(100% - 40px));
+            margin: 0 auto;
         }
 
-        /* Hover Glow Effect */
-        .hover-glow {
-            transition: all 0.3s ease;
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(216, 225, 234, 0.85);
+            background: rgba(246, 248, 251, 0.9);
+            backdrop-filter: blur(14px);
         }
-        .hover-glow:hover {
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
-            border-color: rgba(34, 211, 238, 0.4);
+
+        .nav {
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            color: white;
+            background: linear-gradient(135deg, var(--blue), var(--green));
+            box-shadow: 0 10px 24px rgba(79, 109, 245, 0.22);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            padding: 10px 12px;
+            border-radius: var(--radius);
+        }
+
+        .nav-links a:hover {
+            background: var(--surface-2);
+            color: var(--ink);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+            gap: 42px;
+            align-items: center;
+            padding: 64px 0 46px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 16px;
+            color: var(--blue-dark);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font-size: 64px;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .lead {
+            max-width: 670px;
+            margin-bottom: 26px;
+            color: #334155;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .button {
+            min-height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 0 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            color: var(--ink);
+            font-weight: 800;
+            box-shadow: 0 10px 24px rgba(24, 42, 67, 0.08);
+            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+        }
+
+        .button:hover {
             transform: translateY(-2px);
+            border-color: rgba(79, 109, 245, 0.45);
+            box-shadow: 0 16px 34px rgba(24, 42, 67, 0.13);
         }
 
-        /* Canvas Background */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .button.primary {
+            border-color: var(--blue);
+            background: var(--blue);
+            color: white;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 560px;
+        }
+
+        .stat {
+            min-height: 94px;
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--ink);
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero-visual {
+            display: grid;
+            gap: 16px;
+        }
+
+        .profile-card,
+        .preview-card,
+        .section-card,
+        .repo-card,
+        .feature-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-card {
+            display: grid;
+            grid-template-columns: 112px minmax(0, 1fr);
+            gap: 18px;
+            align-items: center;
+            padding: 18px;
+        }
+
+        .avatar {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 12px 28px rgba(24, 42, 67, 0.16);
+        }
+
+        .profile-card h2 {
+            margin-bottom: 8px;
+            font-size: 26px;
+        }
+
+        .profile-card p {
+            margin-bottom: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .mini-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 8px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: var(--surface);
+            color: #405066;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .preview-card {
+            overflow: hidden;
+        }
+
+        .preview-card img {
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top center;
         }
 
-        /* Scroll Reveal Utility */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+        .preview-caption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 16px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 800;
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+
+        .section {
+            padding: 44px 0;
         }
-        
-        /* Timeline Line */
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 7px;
-            width: 2px;
-            background: linear-gradient(to bottom, #06b6d4, #8b5cf6, transparent);
-            z-index: 0;
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 22px;
+            margin-bottom: 22px;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 8px;
+            font-size: 36px;
+            line-height: 1.15;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin-bottom: 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .kicker {
+            margin-bottom: 10px;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .trainbrain {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .section-card {
+            padding: 26px;
+        }
+
+        .project-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .project-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: #e8efff;
+            color: var(--blue-dark);
+        }
+
+        .project-title h3 {
+            margin-bottom: 2px;
+            font-size: 25px;
+        }
+
+        .project-title span {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .project-copy {
+            color: #35445a;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin: 20px 0 22px;
+        }
+
+        .feature-card {
+            min-height: 118px;
+            padding: 16px;
+            box-shadow: none;
+        }
+
+        .feature-card i {
+            margin-bottom: 12px;
+            color: var(--blue);
+            font-size: 20px;
+        }
+
+        .feature-card strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .feature-card span {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .focus-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            border-left: 4px solid var(--coral);
+        }
+
+        .focus-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .focus-item {
+            display: grid;
+            grid-template-columns: 34px minmax(0, 1fr);
+            gap: 12px;
+            align-items: start;
+        }
+
+        .focus-item i {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: var(--surface-2);
+            color: var(--coral);
+        }
+
+        .focus-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .focus-item span {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .skill {
+            min-height: 150px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .skill i {
+            color: var(--green);
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .skill p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .repo-card {
+            min-height: 210px;
+            padding: 18px;
+            box-shadow: none;
+            transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(79, 109, 245, 0.45);
+            box-shadow: 0 16px 34px rgba(24, 42, 67, 0.12);
+        }
+
+        .repo-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .repo-name {
+            font-size: 18px;
+            font-weight: 900;
+            overflow-wrap: anywhere;
+        }
+
+        .repo-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .repo-desc {
+            min-height: 68px;
+            color: #43536a;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .language-dot {
+            width: 9px;
+            height: 9px;
+            display: inline-block;
+            border-radius: 50%;
+            background: var(--amber);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .timeline-item span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            color: var(--blue-dark);
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .timeline-item p {
+            margin-bottom: 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 22px;
+            align-items: center;
+            margin: 44px 0 34px;
+            padding: 28px;
+            border-radius: var(--radius);
+            background: var(--ink);
+            color: white;
+        }
+
+        .contact h2 {
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .contact p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+        }
+
+        .contact .button {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: white;
+            color: var(--ink);
+            box-shadow: none;
+        }
+
+        .footer {
+            padding: 24px 0 46px;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 980px) {
+            .hero,
+            .trainbrain {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 46px;
+            }
+
+            .skill-grid,
+            .repo-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                width: min(100% - 28px, 1160px);
+            }
+
+            .nav {
+                min-height: 62px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 44px;
+            }
+
+            .lead {
+                font-size: 17px;
+            }
+
+            .stats,
+            .feature-grid,
+            .skill-grid,
+            .repo-grid,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .avatar {
+                margin: 0 auto;
+            }
+
+            .mini-tags,
+            .actions {
+                justify-content: center;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+
+            .contact {
+                text-align: center;
+            }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-cyan-500 selection:text-white">
+<body>
+    <header class="site-header">
+        <nav class="page nav" aria-label="主导航">
+            <a class="brand" href="#top" aria-label="回到首页">
+                <span class="brand-mark"><i class="fa-solid fa-code"></i></span>
+                <span>AlionFan</span>
+            </a>
+            <div class="nav-links">
+                <a href="#trainbrain">TrainBrain</a>
+                <a href="#skills">方向</a>
+                <a href="#repos">仓库</a>
+                <a href="#contact">联系</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Animated Background -->
-    <canvas id="bg-canvas"></canvas>
-
-    <div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 relative z-10">
-        <div class="lg:grid lg:grid-cols-12 lg:gap-10">
-            
-            <!-- Sidebar / Header Section -->
-            <div class="lg:col-span-4 xl:col-span-3 mb-10 lg:mb-0">
-                <div class="glass-card rounded-2xl p-8 text-center lg:text-left sticky top-8 animate-[float_6s_ease-in-out_infinite]">
-                    <!-- Avatar with Glowing Ring -->
-                    <div class="relative w-36 h-36 mx-auto lg:mx-0 mb-6 group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                            <!--<img src="https://api.dicebear.com/9.x/notionists/svg?seed=AlionFan&backgroundColor=0f172a" alt="Alion Fan" class="relative rounded-full border-2 border-slate-700 object-cover w-full h-full bg-slate-900"> -->
-                                <img src="./avatar.png" alt="Alion Fan" class="relative rounded-full border-2 border-slate-700 object-cover w-full h-full bg-slate-900"> -->
+    <main id="top">
+        <section class="page hero" aria-labelledby="hero-title">
+            <div>
+                <p class="eyebrow"><i class="fa-solid fa-terminal"></i> GitHub Page · AI / Robotics / Product</p>
+                <h1 id="hero-title">AlionFan</h1>
+                <p class="lead">
+                    我在把 AI 学习、机器人控制、数据可视化和认知训练产品串成可运行的作品集。
+                    这里展示 GitHub 上的公开项目，也重点记录 TrainBrain 这个专注力与记忆力训练网站。
+                </p>
+                <div class="actions">
+                    <a class="button primary" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        体验 TrainBrain
+                    </a>
+                    <a class="button" href="https://github.com/AlionFan" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i>
+                        访问 GitHub
+                    </a>
+                </div>
+                <div class="stats" aria-label="GitHub 公开概览">
+                    <div class="stat">
+                        <strong data-stat="repos">15</strong>
+                        <span>Public Repos</span>
                     </div>
-                    
-                    <h1 class="text-3xl font-bold font-tech text-white mb-2 tracking-wider">Alion Fan</h1>
-                    
-                    <!-- Typewriter Effect Container -->
-                    <div class="h-6 mb-6 font-mono text-sm text-cyan-400 font-bold">
-                        <span id="typewriter"></span><span class="animate-cursor">|</span>
+                    <div class="stat">
+                        <strong data-stat="followers">1</strong>
+                        <span>Followers</span>
                     </div>
-                    
-                    <div class="space-y-4 text-sm text-slate-400 mb-8">
-                        <div class="flex items-center justify-center lg:justify-start gap-3 group">
-                            <span class="p-2 rounded-lg bg-slate-800/50 text-cyan-400 group-hover:text-white group-hover:bg-cyan-500 transition-colors duration-300">
-                                <i class="fa-solid fa-brain"></i>
-                            </span>
-                            <span>Artificial Intelligence</span>
-                        </div>
-                        <div class="flex items-center justify-center lg:justify-start gap-3 group">
-                            <span class="p-2 rounded-lg bg-slate-800/50 text-purple-400 group-hover:text-white group-hover:bg-purple-500 transition-colors duration-300">
-                                <i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i>
-                            </span>
-                            <span>Focus: Text2Motion</span>
-                        </div>
-                        <div class="flex items-center justify-center lg:justify-start gap-3 group">
-                            <span class="p-2 rounded-lg bg-slate-800/50 text-slate-400 group-hover:text-white group-hover:bg-slate-600 transition-colors duration-300">
-                                <i class="fa-solid fa-envelope"></i>
-                            </span>
-                            <a href="mailto:your_email@example.com" class="hover:text-cyan-400 transition-colors">Email Me</a>
-                        </div>
-                        <div class="flex items-center justify-center lg:justify-start gap-3 group">
-                            <span class="p-2 rounded-lg bg-slate-800/50 text-slate-400 group-hover:text-white group-hover:bg-slate-600 transition-colors duration-300">
-                                <i class="fa-brands fa-github"></i>
-                            </span>
-                            <a href="https://github.com/AlionFan" target="_blank" class="hover:text-cyan-400 transition-colors">github.com/AlionFan</a>
-                        </div>
-                    </div>
-
-                    <!-- Skills Section (NEW) -->
-                    <div class="mb-8">
-                        <h3 class="text-xs font-tech uppercase tracking-[0.2em] text-slate-500 mb-3 text-left">Tech Stack</h3>
-                        <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
-                            <span class="px-2 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-slate-300 hover:border-cyan-500/50 transition cursor-default">PyTorch</span>
-                            <span class="px-2 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-slate-300 hover:border-cyan-500/50 transition cursor-default">Python</span>
-                            <span class="px-2 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-slate-300 hover:border-cyan-500/50 transition cursor-default">Linux</span>
-                            <span class="px-2 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-slate-300 hover:border-cyan-500/50 transition cursor-default">Git</span>
-                            <span class="px-2 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-slate-300 hover:border-cyan-500/50 transition cursor-default">Latex</span>
-                        </div>
-                    </div>
-
-                    <!-- Education Section (NEW) -->
-                    <div class="mb-8 text-left">
-                        <h3 class="text-xs font-tech uppercase tracking-[0.2em] text-slate-500 mb-4">Education</h3>
-                        <div class="space-y-4 pl-2 border-l-2 border-slate-800">
-                            <div class="relative pl-4">
-                                <div class="absolute -left-[9px] top-1.5 w-3 h-3 rounded-full bg-slate-800 border-2 border-purple-500"></div>
-                                <h4 class="text-sm font-bold text-white">M.S. in Computer Science</h4>
-                                <p class="text-xs text-slate-400">University Name</p>
-                                <p class="text-[10px] text-slate-500">2025 - Present</p>
-                            </div>
-                            <div class="relative pl-4">
-                                <div class="absolute -left-[9px] top-1.5 w-3 h-3 rounded-full bg-slate-800 border-2 border-slate-600"></div>
-                                <h4 class="text-sm font-bold text-white">B.S. in Computer Science</h4>
-                                <p class="text-xs text-slate-400">University Name</p>
-                                <p class="text-[10px] text-slate-500">2021 - 2025</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-700/50 pt-6">
-                        <h3 class="text-xs font-tech uppercase tracking-[0.2em] text-slate-500 mb-4">Bio</h3>
-                        <p class="text-sm leading-relaxed text-slate-400 text-justify">
-                            Fast learner, optimistic, and team-oriented. Fueled by sports and music. I specialize in leveraging AI tools to optimize workflows and solving complex problems in <span class="text-cyan-400">Generative AI</span>.
-                        </p>
+                    <div class="stat">
+                        <strong data-stat="langs">7+</strong>
+                        <span>Languages Used</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Main Content Section -->
-            <div class="lg:col-span-8 xl:col-span-9 space-y-12">
-                
-                <!-- News Section (NEW) -->
-                <section class="reveal">
-                    <div class="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
-                        <i class="fa-solid fa-bolt text-2xl text-yellow-400"></i>
-                        <h2 class="text-2xl font-bold font-tech tracking-wide text-white">
-                            Latest <span class="text-gradient">News</span>
-                        </h2>
-                    </div>
-                    
-                    <div class="glass-card p-6 rounded-xl relative timeline-line">
-                        <div class="space-y-6">
-                            <!-- News Item 1 -->
-                            <div class="relative pl-8 group">
-                                <div class="absolute left-0 top-1.5 w-4 h-4 bg-slate-900 border-2 border-cyan-500 rounded-full group-hover:scale-125 group-hover:bg-cyan-500 transition-all z-10 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
-                                <div class="text-xs font-mono text-cyan-400 mb-1">June 2025</div>
-                                <div class="text-slate-300 text-sm">
-                                    Paper <strong class="text-white">"Latent Diffusion Models..."</strong> accepted to <span class="text-cyan-300">CVPR 2025</span>! 🎉
-                                </div>
-                            </div>
-                            <!-- News Item 2 -->
-                            <div class="relative pl-8 group">
-                                <div class="absolute left-0 top-1.5 w-4 h-4 bg-slate-900 border-2 border-purple-500 rounded-full group-hover:scale-125 group-hover:bg-purple-500 transition-all z-10"></div>
-                                <div class="text-xs font-mono text-purple-400 mb-1">Nov 2025</div>
-                                <div class="text-slate-300 text-sm">
-                                    Started researching on <strong>Text2Motion</strong> synthesis.
-                                </div>
-                            </div>
-                            <!-- News Item 3 -->
-                            <div class="relative pl-8 group">
-                                <div class="absolute left-0 top-1.5 w-4 h-4 bg-slate-900 border-2 border-slate-600 rounded-full group-hover:scale-125 group-hover:bg-slate-500 transition-all z-10"></div>
-                                <div class="text-xs font-mono text-slate-500 mb-1">Sep 2025</div>
-                                <div class="text-slate-300 text-sm">
-                                    Created my personal academic page.
-                                </div>
-                            </div>
+            <div class="hero-visual">
+                <article class="profile-card" aria-label="个人信息">
+                    <img class="avatar" src="./avatar.png" alt="AlionFan avatar">
+                    <div>
+                        <h2>Builder with a research habit</h2>
+                        <p>关注 AI 工具、计算机视觉、运动仿真、机器人控制，以及能长期训练能力的产品体验。</p>
+                        <div class="mini-tags">
+                            <span class="tag"><i class="fa-brands fa-python"></i> Python</span>
+                            <span class="tag"><i class="fa-solid fa-microchip"></i> C++</span>
+                            <span class="tag"><i class="fa-solid fa-chart-line"></i> Data</span>
                         </div>
                     </div>
-                </section>
-
-                <!-- Publications Section -->
-                <section class="reveal">
-                    <div class="flex items-center gap-3 mb-8 border-b border-slate-800 pb-4">
-                        <i class="fa-solid fa-layer-group text-2xl text-cyan-500"></i>
-                        <h2 class="text-2xl font-bold font-tech tracking-wide text-white">
-                            Selected <span class="text-gradient">Publications</span>
-                        </h2>
+                </article>
+                <a class="preview-card" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="打开 TrainBrain 网站">
+                    <img src="./trainbrain-preview.png" alt="TrainBrain 网站首页预览">
+                    <div class="preview-caption">
+                        <span>TrainBrain live preview</span>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </div>
-                    
-                    <div class="space-y-5">
-                        <!-- Paper 1 -->
-                        <div class="glass-card p-6 rounded-xl hover-glow group cursor-pointer relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl -mr-10 -mt-10 transition-all group-hover:bg-cyan-500/20"></div>
-                            
-                            <h3 class="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors pr-4">
-                                <a href="#" target="_blank" class="block">(Fake example)Latent Diffusion Models for High-Fidelity Text-to-Motion Generation</a>
-                            </h3>
-                            <div class="flex flex-wrap gap-2 mt-3 text-sm text-slate-400">
-                                <span class="text-cyan-300 font-medium border border-cyan-500/30 bg-cyan-500/10 px-2 py-0.5 rounded text-xs">CVPR 2025</span>
-                                <span>•</span>
-                                <span><strong class="text-white">Alion Fan</strong>, Co-Author A, Co-Author B</span>
-                            </div>
-                        </div>
-
-                        <!-- Paper 2 -->
-                        <div class="glass-card p-6 rounded-xl hover-glow group cursor-pointer">
-                            <h3 class="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                                <a href="#" target="_blank" class="block">(Fake example)Real-time Human Motion Synthesis with Semantic Consistency</a>
-                            </h3>
-                            <div class="flex flex-wrap gap-2 mt-3 text-sm text-slate-400">
-                                <span class="text-purple-300 font-medium border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 rounded text-xs">ICCV 2025</span>
-                                <span>•</span>
-                                <span>Co-Author A, <strong class="text-white">Alion Fan</strong></span>
-                            </div>
-                        </div>
-
-                        <!-- Paper 3 -->
-                        <div class="glass-card p-6 rounded-xl hover-glow group cursor-pointer">
-                            <h3 class="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                                <a href="#" target="_blank" class="block">(Fake example)Benchmarking Text2Motion: A New Dataset and Evaluation Metrics</a>
-                            </h3>
-                            <div class="flex flex-wrap gap-2 mt-3 text-sm text-slate-400">
-                                <span class="text-blue-300 font-medium border border-blue-500/30 bg-blue-500/10 px-2 py-0.5 rounded text-xs">ECCV 2025</span>
-                                <span>•</span>
-                                <span><strong class="text-white">Alion Fan</strong>, Co-Author C</span>
-                            </div>
-                        </div>
-
-                        <!-- Paper 4 -->
-                        <div class="glass-card p-6 rounded-xl hover-glow group cursor-pointer">
-                            <h3 class="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                                <a href="#" target="_blank" class="block">(Fake example)Optimizing Transformer Architectures for 3D Motion Capture Data</a>
-                            </h3>
-                            <div class="flex flex-wrap gap-2 mt-3 text-sm text-slate-400">
-                                <span class="text-indigo-300 font-medium border border-indigo-500/30 bg-indigo-500/10 px-2 py-0.5 rounded text-xs">AAAI 2025</span>
-                                <span>•</span>
-                                <span><strong class="text-white">Alion Fan</strong></span>
-                            </div>
-                        </div>
-
-                        <!-- Paper 5 -->
-                        <div class="glass-card p-6 rounded-xl hover-glow group cursor-pointer opacity-80">
-                            <h3 class="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                                <a href="#" target="_blank" class="block">(Fake example)A Survey of Deep Learning Methods for Human Motion Prediction</a>
-                            </h3>
-                            <div class="flex flex-wrap gap-2 mt-3 text-sm text-slate-400">
-                                <span class="text-slate-300 font-medium border border-slate-500/30 bg-slate-500/10 px-2 py-0.5 rounded text-xs">Submitted (JMLR)</span>
-                                <span>•</span>
-                                <span><strong class="text-white">Alion Fan</strong>, Supervisor X</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Projects Section -->
-                <section class="reveal">
-                    <div class="flex items-center gap-3 mb-8 border-b border-slate-800 pb-4">
-                        <i class="fa-solid fa-code-branch text-2xl text-purple-500"></i>
-                        <h2 class="text-2xl font-bold font-tech tracking-wide text-white">
-                            Selected <span class="text-gradient">Projects</span>
-                        </h2>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Project 1 -->
-                        <div class="glass-card p-6 rounded-xl hover-glow group h-full flex flex-col justify-between border-t-2 border-t-cyan-500/50">
-                            <div>
-                                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">MotionGen-Pro</h3>
-                                <p class="text-sm text-slate-400 leading-relaxed mb-4">
-                                    (Fake example)Open-source framework for realistic 3D human motion generation using latent diffusion models.
-                                </p>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="px-2 py-1 bg-slate-800 text-cyan-400 text-xs rounded border border-slate-700">Python</span>
-                                <span class="px-2 py-1 bg-slate-800 text-cyan-400 text-xs rounded border border-slate-700">PyTorch</span>
-                                <span class="px-2 py-1 bg-slate-800 text-cyan-400 text-xs rounded border border-slate-700">Diffusers</span>
-                            </div>
-                        </div>
-
-                        <!-- Project 2 -->
-                        <div class="glass-card p-6 rounded-xl hover-glow group h-full flex flex-col justify-between border-t-2 border-t-purple-500/50">
-                            <div>
-                                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-purple-400 transition-colors">Auto-Annotator Tool</h3>
-                                <p class="text-sm text-slate-400 leading-relaxed mb-4">
-                                    (Fake example)AI-assisted labeling tool for motion capture datasets with active learning loops.
-                                </p>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="px-2 py-1 bg-slate-800 text-purple-400 text-xs rounded border border-slate-700">React</span>
-                                <span class="px-2 py-1 bg-slate-800 text-purple-400 text-xs rounded border border-slate-700">Flask</span>
-                                <span class="px-2 py-1 bg-slate-800 text-purple-400 text-xs rounded border border-slate-700">Three.js</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Footer -->
-                <footer class="text-center text-slate-600 text-xs pt-12 pb-6">
-                    <p>&copy; 2025 Alion Fan. <span class="hidden sm:inline">|</span> Designed with <i class="fa-solid fa-bolt text-yellow-500"></i> & Future UI</p>
-                </footer>
-
+                </a>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Scripts -->
+        <section id="trainbrain" class="page section" aria-labelledby="trainbrain-title">
+            <div class="section-heading">
+                <div>
+                    <div class="kicker">Featured Work</div>
+                    <h2 id="trainbrain-title">TrainBrain：专注力和记忆力训练网站</h2>
+                </div>
+                <p>
+                    TrainBrain 是一个结构化认知训练与个人表现分析平台，围绕训练、闯关、仪表盘、排行和个人中心组织体验。
+                </p>
+            </div>
+
+            <div class="trainbrain">
+                <article class="section-card">
+                    <div class="project-title">
+                        <span class="project-icon"><i class="fa-solid fa-brain"></i></span>
+                        <div>
+                            <h3>把训练做成可以持续推进的系统</h3>
+                            <span>34 个关卡 · 7 大认知类别 · XP 与成就</span>
+                        </div>
+                    </div>
+                    <p class="project-copy">
+                        从公开页面可以看到，TrainBrain 以注意力、记忆力、逻辑计算、反应能力、执行功能、处理速度和空间能力为训练入口，
+                        用闯关挑战、每日目标、等级系统和排行榜提升持续使用动力。
+                    </p>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <strong>闯关路径</strong>
+                            <span>34 个关卡逐级提升，让训练进度更清晰。</span>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <strong>多维训练</strong>
+                            <span>覆盖注意力、记忆力、逻辑与反应等 7 类能力。</span>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fa-solid fa-ranking-star"></i>
+                            <strong>反馈机制</strong>
+                            <span>XP、成就、排行和仪表盘形成表现闭环。</span>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <strong>每日挑战</strong>
+                            <span>用每日目标维持节奏，适合长期训练。</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a class="button primary" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-play"></i>
+                            开始训练
+                        </a>
+                        <a class="button" href="https://train-brain-khaki.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            查看仪表盘
+                        </a>
+                    </div>
+                </article>
+
+                <aside class="section-card focus-card" aria-label="TrainBrain 产品重点">
+                    <div class="focus-list">
+                        <div class="focus-item">
+                            <i class="fa-solid fa-route"></i>
+                            <div>
+                                <strong>可理解的成长路线</strong>
+                                <span>训练不是一次性测试，而是连续推进的关卡结构。</span>
+                            </div>
+                        </div>
+                        <div class="focus-item">
+                            <i class="fa-solid fa-gauge-high"></i>
+                            <div>
+                                <strong>可分析的表现数据</strong>
+                                <span>仪表盘将训练结果转成个人表现反馈。</span>
+                            </div>
+                        </div>
+                        <div class="focus-item">
+                            <i class="fa-solid fa-user-check"></i>
+                            <div>
+                                <strong>可持续的个人体验</strong>
+                                <span>注册、登录、个人中心和排行榜支撑长期使用。</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="button" href="https://train-brain-khaki.vercel.app/challenge" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-trophy"></i>
+                        打开闯关挑战
+                    </a>
+                </aside>
+            </div>
+        </section>
+
+        <section id="skills" class="page section" aria-labelledby="skills-title">
+            <div class="section-heading">
+                <div>
+                    <div class="kicker">Focus Areas</div>
+                    <h2 id="skills-title">项目方向</h2>
+                </div>
+                <p>从公开仓库看，项目覆盖 Python 实验、机器人控制、数据可视化、Web 工具和 AI 课程实践。</p>
+            </div>
+            <div class="skill-grid">
+                <article class="skill">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>机器人与控制</h3>
+                    <p>Little_Arm、ArmLib 体现了小型机械臂设计、仿真和 CAN Bus 控制方向。</p>
+                </article>
+                <article class="skill">
+                    <i class="fa-solid fa-brain"></i>
+                    <h3>AI 与视觉实践</h3>
+                    <p>CV_Class、mmsegmentation 等仓库记录计算机视觉和 AI 系统综合实践。</p>
+                </article>
+                <article class="skill">
+                    <i class="fa-solid fa-wave-square"></i>
+                    <h3>运动与仿真</h3>
+                    <p>FanMotion、PhysicsMotionSimulation 指向运动、物理模拟和 Python 实验。</p>
+                </article>
+                <article class="skill">
+                    <i class="fa-solid fa-window-restore"></i>
+                    <h3>产品与工具</h3>
+                    <p>TrainBrain、speech2text、DataAnalysis 展示把能力训练和数据处理做成可用工具的兴趣。</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="repos" class="page section" aria-labelledby="repos-title">
+            <div class="section-heading">
+                <div>
+                    <div class="kicker">GitHub Projects</div>
+                    <h2 id="repos-title">精选公开仓库</h2>
+                </div>
+                <p>页面会优先加载 GitHub 公开 API，失败时使用本地快照内容展示。</p>
+            </div>
+            <div class="repo-grid" id="repo-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="page section" aria-labelledby="timeline-title">
+            <div class="section-heading">
+                <div>
+                    <div class="kicker">Now</div>
+                    <h2 id="timeline-title">近期建设重点</h2>
+                </div>
+            </div>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <span><i class="fa-solid fa-circle-dot"></i> TrainBrain</span>
+                    <h3>完善认知训练产品</h3>
+                    <p>围绕训练类别、关卡、数据反馈和长期激励继续打磨体验。</p>
+                </article>
+                <article class="timeline-item">
+                    <span><i class="fa-solid fa-code-branch"></i> FanMotion</span>
+                    <h3>运动相关 Python 项目</h3>
+                    <p>新的公开仓库已经创建，适合作为运动、仿真或 AI 实验的主线项目。</p>
+                </article>
+                <article class="timeline-item">
+                    <span><i class="fa-solid fa-screwdriver-wrench"></i> ArmLib</span>
+                    <h3>机械臂控制库</h3>
+                    <p>围绕 ArmRobot 与 CAN Bus 的控制库，连接硬件控制和工程实践。</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="page contact" aria-labelledby="contact-title">
+            <div>
+                <h2 id="contact-title">把项目继续做实。</h2>
+                <p>欢迎从 GitHub 查看源码、提交 issue，或者直接体验 TrainBrain。这个页面也会作为作品集入口持续更新。</p>
+            </div>
+            <div class="actions">
+                <a class="button" href="https://github.com/AlionFan" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+                <a class="button" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-brain"></i>
+                    TrainBrain
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page footer">
+        <span>© 2026 AlionFan. Built for GitHub Pages.</span>
+    </footer>
+
     <script>
-        // 1. Particle Background
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, particles = [];
-        
-        const particleCount = 50; 
-        const connectionDistance = 150;
-        
-        function resize() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-        }
-        
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-                this.color = Math.random() > 0.5 ? 'rgba(6, 182, 212,' : 'rgba(139, 92, 246,'; 
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color + '0.5)';
-                ctx.fill();
-            }
-        }
-        
-        function initCanvas() {
-            resize();
-            particles = [];
-            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-            animate();
-        }
-        
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            particles.forEach((a, index) => {
-                for (let j = index + 1; j < particles.length; j++) {
-                    const b = particles[j];
-                    const d = Math.sqrt((a.x-b.x)**2 + (a.y-b.y)**2);
-                    if (d < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(100, 116, 139, ${0.15 * (1 - d/connectionDistance)})`;
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(b.x, b.y);
-                        ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(animate);
-        }
-        
-        window.addEventListener('resize', () => { resize(); });
-        initCanvas();
-
-        // 2. Typewriter Effect
-        const textToType = "AI Researcher / Developer";
-        const typeContainer = document.getElementById('typewriter');
-        let typeIndex = 0;
-
-        function typeWriter() {
-            if (typeIndex < textToType.length) {
-                typeContainer.innerHTML += textToType.charAt(typeIndex);
-                typeIndex++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        // Start typing after a short delay
-        setTimeout(typeWriter, 1000);
-
-        // 3. Scroll Reveal Animation
-        const observerOptions = {
-            threshold: 0.1
+        const fallbackProfile = {
+            public_repos: 15,
+            followers: 1
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Only animate once
-                }
-            });
-        }, observerOptions);
+        const fallbackRepos = [
+            {
+                name: "FanMotion",
+                html_url: "https://github.com/AlionFan/FanMotion",
+                description: "新的 Python 运动方向实验仓库，适合作为动作、仿真或 AI 实践主线。",
+                language: "Python",
+                stargazers_count: 0,
+                updated_at: "2026-06-06T07:01:28Z"
+            },
+            {
+                name: "ArmLib",
+                html_url: "https://github.com/AlionFan/ArmLib",
+                description: "Armlib is a library for ArmRobot Control with CanBus.",
+                language: "C++",
+                stargazers_count: 1,
+                updated_at: "2026-06-06T06:55:33Z"
+            },
+            {
+                name: "Little_Arm",
+                html_url: "https://github.com/AlionFan/Little_Arm",
+                description: "3D 打印的小型机械臂设计与仿真。",
+                language: "Python",
+                stargazers_count: 2,
+                updated_at: "2026-06-04T00:23:01Z"
+            },
+            {
+                name: "DataAnalysis",
+                html_url: "https://github.com/AlionFan/DataAnalysis",
+                description: "Dat format file visualize.",
+                language: "Python",
+                stargazers_count: 0,
+                updated_at: "2026-04-24T04:55:39Z"
+            },
+            {
+                name: "speech2text",
+                html_url: "https://github.com/AlionFan/speech2text",
+                description: "Convert voice to text using LLM API.",
+                language: "JavaScript",
+                stargazers_count: 0,
+                updated_at: "2026-03-12T04:23:31Z"
+            },
+            {
+                name: "mmsegmentation",
+                html_url: "https://github.com/AlionFan/mmsegmentation",
+                description: "首都师范大学人工智能系统综合实践大作业。",
+                language: "Python",
+                stargazers_count: 1,
+                updated_at: "2025-12-14T14:51:37Z"
+            }
+        ];
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        const repoPriority = ["FanMotion", "ArmLib", "Little_Arm", "DataAnalysis", "speech2text", "PhysicsMotionSimulation", "mmsegmentation", "StudentSelectCourse"];
+        const fallbackDescriptions = new Map(fallbackRepos.map((repo) => [repo.name, repo.description]));
+        const languageColors = {
+            Python: "#3572a5",
+            "C++": "#f34b7d",
+            JavaScript: "#f1e05a",
+            HTML: "#e34c26",
+            Lua: "#000080",
+            "Jupyter Notebook": "#da5b0b"
+        };
+
+        function formatDate(value) {
+            if (!value) return "持续更新";
+            return new Intl.DateTimeFormat("zh-CN", {
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+            }).format(new Date(value));
+        }
+
+        function getDescription(repo) {
+            return repo.description || fallbackDescriptions.get(repo.name) || "GitHub 公开仓库，项目说明持续完善中。";
+        }
+
+        function renderStats(profile, repos) {
+            const languages = new Set(repos.map((repo) => repo.language).filter(Boolean));
+            document.querySelector('[data-stat="repos"]').textContent = profile.public_repos || fallbackProfile.public_repos;
+            document.querySelector('[data-stat="followers"]').textContent = profile.followers ?? fallbackProfile.followers;
+            document.querySelector('[data-stat="langs"]').textContent = `${Math.max(languages.size, 7)}+`;
+        }
+
+        function sortRepos(repos) {
+            const priority = new Map(repoPriority.map((name, index) => [name, index]));
+            return repos
+                .filter((repo) => !repo.fork && repo.name !== "AlionFan.github.io")
+                .sort((a, b) => {
+                    const aPriority = priority.has(a.name) ? priority.get(a.name) : 99;
+                    const bPriority = priority.has(b.name) ? priority.get(b.name) : 99;
+                    if (aPriority !== bPriority) return aPriority - bPriority;
+                    return new Date(b.updated_at || 0) - new Date(a.updated_at || 0);
+                })
+                .slice(0, 6);
+        }
+
+        function createMetaItem(iconClass, text) {
+            const item = document.createElement("span");
+            const icon = document.createElement("i");
+            icon.className = iconClass;
+            item.append(icon, document.createTextNode(` ${text}`));
+            return item;
+        }
+
+        function renderRepos(repos) {
+            const grid = document.getElementById("repo-grid");
+            grid.replaceChildren();
+
+            sortRepos(repos).forEach((repo) => {
+                const card = document.createElement("a");
+                card.className = "repo-card";
+                card.href = repo.html_url;
+                card.target = "_blank";
+                card.rel = "noopener noreferrer";
+
+                const top = document.createElement("div");
+                top.className = "repo-top";
+
+                const name = document.createElement("div");
+                name.className = "repo-name";
+                name.textContent = repo.name;
+
+                const arrow = document.createElement("i");
+                arrow.className = "fa-solid fa-arrow-up-right-from-square";
+                arrow.setAttribute("aria-hidden", "true");
+
+                top.append(name, arrow);
+
+                const desc = document.createElement("p");
+                desc.className = "repo-desc";
+                desc.textContent = getDescription(repo);
+
+                const meta = document.createElement("div");
+                meta.className = "repo-meta";
+
+                if (repo.language) {
+                    const lang = document.createElement("span");
+                    const dot = document.createElement("span");
+                    dot.className = "language-dot";
+                    dot.style.background = languageColors[repo.language] || "#c58721";
+                    lang.append(dot, document.createTextNode(` ${repo.language}`));
+                    meta.append(lang);
+                }
+
+                meta.append(
+                    createMetaItem("fa-regular fa-star", repo.stargazers_count || 0),
+                    createMetaItem("fa-regular fa-clock", formatDate(repo.updated_at))
+                );
+
+                card.append(top, desc, meta);
+                grid.append(card);
+            });
+        }
+
+        async function loadGitHub() {
+            renderStats(fallbackProfile, fallbackRepos);
+            renderRepos(fallbackRepos);
+
+            try {
+                const [profileResponse, reposResponse] = await Promise.all([
+                    fetch("https://api.github.com/users/AlionFan"),
+                    fetch("https://api.github.com/users/AlionFan/repos?sort=updated&per_page=100")
+                ]);
+
+                if (!profileResponse.ok || !reposResponse.ok) {
+                    throw new Error("GitHub API unavailable");
+                }
+
+                const profile = await profileResponse.json();
+                const repos = await reposResponse.json();
+                renderStats(profile, repos);
+                renderRepos(repos);
+            } catch (error) {
+                // Keep the local snapshot when GitHub API is unavailable.
+            }
+        }
+
+        loadGitHub();
     </script>
 </body>
 </html>
