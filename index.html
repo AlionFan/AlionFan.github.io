@@ -182,6 +182,11 @@
             transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
         }
 
+        button.button {
+            font: inherit;
+            cursor: pointer;
+        }
+
         .button:hover {
             transform: translateY(-2px);
             border-color: rgba(79, 109, 245, 0.45);
@@ -611,6 +616,19 @@
             box-shadow: none;
         }
 
+        .contact .actions {
+            margin-bottom: 0;
+            justify-content: flex-end;
+        }
+
+        .copy-feedback {
+            min-height: 20px;
+            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
         .footer {
             padding: 24px 0 46px;
             color: var(--muted);
@@ -729,6 +747,10 @@
                         <i class="fa-brands fa-github"></i>
                         访问 GitHub
                     </a>
+                    <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=h1317483655%40gmail.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-envelope"></i>
+                        Gmail 发邮件
+                    </a>
                 </div>
                 <div class="stats" aria-label="GitHub 公开概览">
                     <div class="stat">
@@ -748,7 +770,7 @@
 
             <div class="hero-visual">
                 <article class="profile-card" aria-label="个人信息">
-                    <img class="avatar" src="./avatar.png" alt="AlionFan avatar">
+                    <img class="avatar" src="./avatar-new.png" alt="AlionFan avatar">
                     <div>
                         <h2>Builder with a research habit</h2>
                         <p>关注 AI 工具、计算机视觉、运动仿真、机器人控制，以及能长期训练能力的产品体验。</p>
@@ -931,13 +953,22 @@
         <section id="contact" class="page contact" aria-labelledby="contact-title">
             <div>
                 <h2 id="contact-title">把项目继续做实。</h2>
-                <p>欢迎从 GitHub 查看源码、提交 issue，或者直接体验 TrainBrain。这个页面也会作为作品集入口持续更新。</p>
+                <p>欢迎从 GitHub 查看源码、提交 issue，或者直接体验 TrainBrain。也可以通过 h1317483655@gmail.com 联系我。</p>
+                <div class="copy-feedback" data-copy-feedback aria-live="polite"></div>
             </div>
             <div class="actions">
                 <a class="button" href="https://github.com/AlionFan" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-github"></i>
                     GitHub
                 </a>
+                <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=h1317483655%40gmail.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-envelope"></i>
+                    Gmail
+                </a>
+                <button class="button" type="button" data-copy-email="h1317483655@gmail.com">
+                    <i class="fa-solid fa-copy"></i>
+                    复制邮箱
+                </button>
                 <a class="button" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-brain"></i>
                     TrainBrain
@@ -1131,6 +1162,51 @@
                 // Keep the local snapshot when GitHub API is unavailable.
             }
         }
+
+        function copyWithSelection(text) {
+            const input = document.createElement("textarea");
+            input.value = text;
+            input.setAttribute("readonly", "");
+            input.style.position = "fixed";
+            input.style.top = "0";
+            input.style.left = "0";
+            input.style.opacity = "0";
+            document.body.append(input);
+            input.select();
+            const copied = document.execCommand("copy");
+            input.remove();
+            return copied;
+        }
+
+        async function copyText(text) {
+            if (copyWithSelection(text)) return;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return;
+            }
+
+            throw new Error("Clipboard unavailable");
+        }
+
+        document.querySelectorAll("[data-copy-email]").forEach((button) => {
+            button.addEventListener("click", async () => {
+                const email = button.getAttribute("data-copy-email");
+                const feedback = document.querySelector("[data-copy-feedback]");
+
+                try {
+                    await copyText(email);
+                    button.innerHTML = '<i class="fa-solid fa-check"></i> 已复制';
+                    if (feedback) feedback.textContent = `已复制邮箱：${email}`;
+                } catch (error) {
+                    if (feedback) feedback.textContent = `复制失败，请手动复制：${email}`;
+                }
+
+                window.setTimeout(() => {
+                    button.innerHTML = '<i class="fa-solid fa-copy"></i> 复制邮箱';
+                }, 1800);
+            });
+        });
 
         loadGitHub();
     </script>
