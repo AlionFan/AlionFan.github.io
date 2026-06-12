@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlionFan | GitHub Page</title>
-    <meta name="description" content="AlionFan's GitHub Page: AI practice, robotics control, data analysis, and the TrainBrain cognitive training project.">
-    <meta property="og:title" content="AlionFan | GitHub Page">
-    <meta property="og:description" content="AI practice, robotics control, data analysis, and the TrainBrain cognitive training project.">
+    <meta name="description" content="AlionFan's GitHub Page: AI practice, robotics control, data analysis, and the TrainBrain cognitive training project." data-i18n-content="meta.description">
+    <meta property="og:title" content="AlionFan | GitHub Page" data-i18n-content="meta.title">
+    <meta property="og:description" content="AI practice, robotics control, data analysis, and the TrainBrain cognitive training project." data-i18n-content="meta.ogDescription">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alionfan.github.io/">
     <meta property="og:image" content="./trainbrain-preview.png">
@@ -101,6 +101,12 @@
             color: white;
             background: linear-gradient(135deg, var(--blue), var(--green));
             box-shadow: 0 10px 24px rgba(79, 109, 245, 0.22);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .nav-links {
@@ -749,16 +755,22 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="page nav" aria-label="主导航">
-            <a class="brand" href="#top" aria-label="回到首页">
+        <nav class="page nav" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
+            <a class="brand" href="#top" aria-label="Back to home" data-i18n-aria-label="nav.homeAria">
                 <span class="brand-mark"><i class="fa-solid fa-code"></i></span>
                 <span>AlionFan</span>
             </a>
-            <div class="nav-links">
-                <a href="#trainbrain">TrainBrain</a>
-                <a href="#skills">方向</a>
-                <a href="#repos">仓库</a>
-                <a href="#contact">联系</a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#trainbrain">TrainBrain</a>
+                    <a href="#skills" data-i18n="nav.skills">Focus</a>
+                    <a href="#repos" data-i18n="nav.repos">Repos</a>
+                    <a href="#contact" data-i18n="nav.contact">Contact</a>
+                </div>
+                <div class="lang-switcher" role="group" aria-label="Language" data-i18n-aria-label="language.aria">
+                    <button type="button" data-lang-choice="en" aria-pressed="true" aria-label="Switch to English" data-i18n-aria-label="language.enAria">EN</button>
+                    <button type="button" data-lang-choice="zh" aria-pressed="false" aria-label="Switch to Chinese" data-i18n-aria-label="language.zhAria">中文</button>
+                </div>
             </div>
         </nav>
     </header>
@@ -766,48 +778,45 @@
     <main id="top">
         <section class="page hero" aria-labelledby="hero-title">
             <div>
-                <p class="eyebrow"><i class="fa-solid fa-terminal"></i> GitHub Page · AI / Robotics / Product</p>
+                <p class="eyebrow"><i class="fa-solid fa-terminal"></i> <span data-i18n="hero.eyebrow">GitHub Page · AI / Robotics / Product</span></p>
                 <h1 id="hero-title">AlionFan</h1>
-                <p class="lead">
-                    我在把 AI 学习、机器人控制、数据可视化和认知训练产品串成可运行的作品集。
-                    这里展示 GitHub 上的公开项目，也重点记录 TrainBrain 这个专注力与记忆力训练网站。
-                </p>
+                <p class="lead" data-i18n="hero.lead">I turn AI learning, robotics control, data visualization, and cognitive training into a working portfolio. This page highlights public GitHub projects and TrainBrain, a website for focus and memory training.</p>
                 <div class="actions">
                     <a class="button primary" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        体验 TrainBrain
+                        <span data-i18n="hero.trainbrainAction">Try TrainBrain</span>
                     </a>
                     <a class="button" href="https://github.com/AlionFan" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-github"></i>
-                        访问 GitHub
+                        <span data-i18n="hero.githubAction">Visit GitHub</span>
                     </a>
                     <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=h1317483655%40gmail.com" target="_blank" rel="noopener noreferrer">
                         <i class="fa-solid fa-envelope"></i>
-                        Gmail 发邮件
+                        <span data-i18n="hero.emailAction">Email with Gmail</span>
                     </a>
                 </div>
-                <div class="stats" aria-label="GitHub 公开概览">
+                <div class="stats" aria-label="Public GitHub overview" data-i18n-aria-label="stats.aria">
                     <div class="stat">
                         <strong data-stat="repos">15</strong>
-                        <span>Public Repos</span>
+                        <span data-i18n="stats.repos">Public Repos</span>
                     </div>
                     <div class="stat">
                         <strong data-stat="followers">1</strong>
-                        <span>Followers</span>
+                        <span data-i18n="stats.followers">Followers</span>
                     </div>
                     <div class="stat">
                         <strong data-stat="langs">7+</strong>
-                        <span>Languages Used</span>
+                        <span data-i18n="stats.languages">Languages Used</span>
                     </div>
                 </div>
             </div>
 
             <div class="hero-visual">
-                <article class="profile-card" aria-label="个人信息">
+                <article class="profile-card" aria-label="Profile summary" data-i18n-aria-label="profile.aria">
                     <img class="avatar" src="./avatar-new.png" alt="AlionFan avatar">
                     <div>
-                        <h2>Builder with a research habit</h2>
-                        <p>关注 AI 工具、计算机视觉、运动仿真、机器人控制，以及能长期训练能力的产品体验。</p>
+                        <h2 data-i18n="profile.title">Builder with a research habit</h2>
+                        <p data-i18n="profile.copy">Focused on AI tools, computer vision, motion simulation, robotics control, and product experiences that help people train abilities over time.</p>
                         <div class="mini-tags">
                             <span class="tag"><i class="fa-brands fa-python"></i> Python</span>
                             <span class="tag"><i class="fa-solid fa-microchip"></i> C++</span>
@@ -815,10 +824,10 @@
                         </div>
                     </div>
                 </article>
-                <a class="preview-card" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="打开 TrainBrain 网站">
-                    <img src="./trainbrain-preview.png" alt="TrainBrain 网站首页预览">
+                <a class="preview-card" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open the TrainBrain website" data-i18n-aria-label="preview.aria">
+                    <img src="./trainbrain-preview.png" alt="TrainBrain homepage preview" data-i18n-alt="preview.alt">
                     <div class="preview-caption">
-                        <span>TrainBrain live preview</span>
+                        <span data-i18n="preview.caption">TrainBrain live preview</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </a>
@@ -828,12 +837,10 @@
         <section id="trainbrain" class="page section" aria-labelledby="trainbrain-title">
             <div class="section-heading">
                 <div>
-                    <div class="kicker">Featured Work</div>
-                    <h2 id="trainbrain-title">TrainBrain：专注力和记忆力训练网站</h2>
+                    <div class="kicker" data-i18n="trainbrain.kicker">Featured Work</div>
+                    <h2 id="trainbrain-title" data-i18n="trainbrain.title">TrainBrain: focus and memory training website</h2>
                 </div>
-                <p>
-                    TrainBrain 是一个结构化认知训练与个人表现分析平台，围绕训练、闯关、仪表盘、排行和个人中心组织体验。
-                </p>
+                <p data-i18n="trainbrain.summary">TrainBrain is a structured cognitive training and performance analysis platform organized around practice, challenges, dashboards, rankings, and a personal profile.</p>
             </div>
 
             <div class="trainbrain">
@@ -841,75 +848,72 @@
                     <div class="project-title">
                         <span class="project-icon"><i class="fa-solid fa-brain"></i></span>
                         <div>
-                            <h3>把训练做成可以持续推进的系统</h3>
-                            <span>34 个关卡 · 7 大认知类别 · XP 与成就</span>
+                            <h3 data-i18n="trainbrain.projectTitle">Turning training into a system you can keep advancing</h3>
+                            <span data-i18n="trainbrain.projectMeta">34 levels · 7 cognitive categories · XP and achievements</span>
                         </div>
                     </div>
-                    <p class="project-copy">
-                        从公开页面可以看到，TrainBrain 以注意力、记忆力、逻辑计算、反应能力、执行功能、处理速度和空间能力为训练入口，
-                        用闯关挑战、每日目标、等级系统和排行榜提升持续使用动力。
-                    </p>
+                    <p class="project-copy" data-i18n="trainbrain.projectCopy">From the public pages, TrainBrain uses attention, memory, logic and calculation, reaction, executive function, processing speed, and spatial ability as training paths, with level challenges, daily goals, leveling, and leaderboards to keep progress visible.</p>
                     <div class="feature-grid">
                         <div class="feature-card">
                             <i class="fa-solid fa-bullseye"></i>
-                            <strong>闯关路径</strong>
-                            <span>34 个关卡逐级提升，让训练进度更清晰。</span>
+                            <strong data-i18n="trainbrain.featurePathTitle">Level path</strong>
+                            <span data-i18n="trainbrain.featurePathCopy">34 levels build up step by step, making progress easier to read.</span>
                         </div>
                         <div class="feature-card">
                             <i class="fa-solid fa-layer-group"></i>
-                            <strong>多维训练</strong>
-                            <span>覆盖注意力、记忆力、逻辑与反应等 7 类能力。</span>
+                            <strong data-i18n="trainbrain.featureTrainingTitle">Multidimensional training</strong>
+                            <span data-i18n="trainbrain.featureTrainingCopy">Covers seven ability areas, including attention, memory, logic, and reaction.</span>
                         </div>
                         <div class="feature-card">
                             <i class="fa-solid fa-ranking-star"></i>
-                            <strong>反馈机制</strong>
-                            <span>XP、成就、排行和仪表盘形成表现闭环。</span>
+                            <strong data-i18n="trainbrain.featureFeedbackTitle">Feedback loop</strong>
+                            <span data-i18n="trainbrain.featureFeedbackCopy">XP, achievements, rankings, and dashboards turn results into feedback.</span>
                         </div>
                         <div class="feature-card">
                             <i class="fa-solid fa-calendar-check"></i>
-                            <strong>每日挑战</strong>
-                            <span>用每日目标维持节奏，适合长期训练。</span>
+                            <strong data-i18n="trainbrain.featureDailyTitle">Daily challenges</strong>
+                            <span data-i18n="trainbrain.featureDailyCopy">Daily goals help maintain rhythm for long-term training.</span>
                         </div>
                     </div>
                     <div class="actions">
                         <a class="button primary" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">
                             <i class="fa-solid fa-play"></i>
-                            开始训练
+                            <span data-i18n="trainbrain.startAction">Start training</span>
                         </a>
                         <a class="button" href="https://train-brain-khaki.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">
                             <i class="fa-solid fa-chart-simple"></i>
-                            查看仪表盘
+                            <span data-i18n="trainbrain.dashboardAction">View dashboard</span>
                         </a>
                     </div>
                 </article>
 
-                <aside class="section-card focus-card" aria-label="TrainBrain 产品重点">
+                <aside class="section-card focus-card" aria-label="TrainBrain product focus" data-i18n-aria-label="trainbrain.focusAria">
                     <div class="focus-list">
                         <div class="focus-item">
                             <i class="fa-solid fa-route"></i>
                             <div>
-                                <strong>可理解的成长路线</strong>
-                                <span>训练不是一次性测试，而是连续推进的关卡结构。</span>
+                                <strong data-i18n="trainbrain.focusRouteTitle">Readable growth path</strong>
+                                <span data-i18n="trainbrain.focusRouteCopy">Training is not a one-off test; it is a level structure that keeps moving forward.</span>
                             </div>
                         </div>
                         <div class="focus-item">
                             <i class="fa-solid fa-gauge-high"></i>
                             <div>
-                                <strong>可分析的表现数据</strong>
-                                <span>仪表盘将训练结果转成个人表现反馈。</span>
+                                <strong data-i18n="trainbrain.focusDataTitle">Analyzable performance data</strong>
+                                <span data-i18n="trainbrain.focusDataCopy">Dashboards turn training results into personal performance feedback.</span>
                             </div>
                         </div>
                         <div class="focus-item">
                             <i class="fa-solid fa-user-check"></i>
                             <div>
-                                <strong>可持续的个人体验</strong>
-                                <span>注册、登录、个人中心和排行榜支撑长期使用。</span>
+                                <strong data-i18n="trainbrain.focusPersonalTitle">Sustainable personal experience</strong>
+                                <span data-i18n="trainbrain.focusPersonalCopy">Sign up, login, profiles, and leaderboards support long-term use.</span>
                             </div>
                         </div>
                     </div>
                     <a class="button" href="https://train-brain-khaki.vercel.app/challenge" target="_blank" rel="noopener noreferrer">
                         <i class="fa-solid fa-trophy"></i>
-                        打开闯关挑战
+                        <span data-i18n="trainbrain.challengeAction">Open challenges</span>
                     </a>
                 </aside>
             </div>
@@ -918,31 +922,31 @@
         <section id="skills" class="page section" aria-labelledby="skills-title">
             <div class="section-heading">
                 <div>
-                    <div class="kicker">Focus Areas</div>
-                    <h2 id="skills-title">项目方向</h2>
+                    <div class="kicker" data-i18n="skills.kicker">Focus Areas</div>
+                    <h2 id="skills-title" data-i18n="skills.title">Project directions</h2>
                 </div>
-                <p>从公开仓库看，项目覆盖 Python 实验、机器人控制、数据可视化、Web 工具和 AI 课程实践。</p>
+                <p data-i18n="skills.summary">Across the public repos, the work spans Python experiments, robotics control, data visualization, web tools, and AI coursework practice.</p>
             </div>
             <div class="skill-grid">
                 <article class="skill">
                     <i class="fa-solid fa-robot"></i>
-                    <h3>机器人与控制</h3>
-                    <p>Little_Arm、ArmLib 体现了小型机械臂设计、仿真和 CAN Bus 控制方向。</p>
+                    <h3 data-i18n="skills.roboticsTitle">Robotics and control</h3>
+                    <p data-i18n="skills.roboticsCopy">Little_Arm and ArmLib show small robotic arm design, simulation, and CAN Bus control work.</p>
                 </article>
                 <article class="skill">
                     <i class="fa-solid fa-brain"></i>
-                    <h3>AI 与视觉实践</h3>
-                    <p>CV_Class、mmsegmentation 等仓库记录计算机视觉和 AI 系统综合实践。</p>
+                    <h3 data-i18n="skills.aiTitle">AI and vision practice</h3>
+                    <p data-i18n="skills.aiCopy">CV_Class, mmsegmentation, and related repos document computer vision and AI systems practice.</p>
                 </article>
                 <article class="skill">
                     <i class="fa-solid fa-wave-square"></i>
-                    <h3>运动与仿真</h3>
-                    <p>FanMotion、PhysicsMotionSimulation 指向运动、物理模拟和 Python 实验。</p>
+                    <h3 data-i18n="skills.motionTitle">Motion and simulation</h3>
+                    <p data-i18n="skills.motionCopy">FanMotion and PhysicsMotionSimulation point toward motion, physics simulation, and Python experiments.</p>
                 </article>
                 <article class="skill">
                     <i class="fa-solid fa-window-restore"></i>
-                    <h3>产品与工具</h3>
-                    <p>TrainBrain、speech2text、DataAnalysis 展示把能力训练和数据处理做成可用工具的兴趣。</p>
+                    <h3 data-i18n="skills.productTitle">Products and tools</h3>
+                    <p data-i18n="skills.productCopy">TrainBrain, speech2text, and DataAnalysis show an interest in turning training and data work into usable tools.</p>
                 </article>
             </div>
         </section>
@@ -950,10 +954,10 @@
         <section id="repos" class="page section" aria-labelledby="repos-title">
             <div class="section-heading">
                 <div>
-                    <div class="kicker">GitHub Projects</div>
-                    <h2 id="repos-title">精选公开仓库</h2>
+                    <div class="kicker" data-i18n="repos.kicker">GitHub Projects</div>
+                    <h2 id="repos-title" data-i18n="repos.title">Selected public repositories</h2>
                 </div>
-                <p>页面会优先加载 GitHub 公开 API，失败时使用本地快照内容展示。</p>
+                <p data-i18n="repos.summary">The page loads the public GitHub API first and falls back to a local snapshot if that request fails.</p>
             </div>
             <div class="repo-grid" id="repo-grid" aria-live="polite"></div>
         </section>
@@ -961,61 +965,268 @@
         <section class="page section" aria-labelledby="timeline-title">
             <div class="section-heading">
                 <div>
-                    <div class="kicker">Now</div>
-                    <h2 id="timeline-title">近期建设重点</h2>
+                    <div class="kicker" data-i18n="timeline.kicker">Now</div>
+                    <h2 id="timeline-title" data-i18n="timeline.title">Current build focus</h2>
                 </div>
             </div>
             <div class="timeline">
                 <article class="timeline-item">
                     <span><i class="fa-solid fa-circle-dot"></i> TrainBrain</span>
-                    <h3>完善认知训练产品</h3>
-                    <p>围绕训练类别、关卡、数据反馈和长期激励继续打磨体验。</p>
+                    <h3 data-i18n="timeline.trainbrainTitle">Refine the cognitive training product</h3>
+                    <p data-i18n="timeline.trainbrainCopy">Continue improving the experience around training categories, levels, data feedback, and long-term motivation.</p>
                 </article>
                 <article class="timeline-item">
                     <span><i class="fa-solid fa-code-branch"></i> FanMotion</span>
-                    <h3>运动相关 Python 项目</h3>
-                    <p>新的公开仓库已经创建，适合作为运动、仿真或 AI 实验的主线项目。</p>
+                    <h3 data-i18n="timeline.fanmotionTitle">Motion-related Python work</h3>
+                    <p data-i18n="timeline.fanmotionCopy">A new public repo is in place for motion, simulation, or AI experiment work.</p>
                 </article>
                 <article class="timeline-item">
                     <span><i class="fa-solid fa-screwdriver-wrench"></i> ArmLib</span>
-                    <h3>机械臂控制库</h3>
-                    <p>围绕 ArmRobot 与 CAN Bus 的控制库，连接硬件控制和工程实践。</p>
+                    <h3 data-i18n="timeline.armlibTitle">Robotic arm control library</h3>
+                    <p data-i18n="timeline.armlibCopy">A control library around ArmRobot and CAN Bus that connects hardware control with engineering practice.</p>
                 </article>
             </div>
         </section>
 
         <section id="contact" class="page contact" aria-labelledby="contact-title">
             <div>
-                <h2 id="contact-title">把项目继续做实。</h2>
-                <p>欢迎从 GitHub 查看源码、提交 issue，或者直接体验 TrainBrain。也可以通过 h1317483655@gmail.com 联系我。</p>
+                <h2 id="contact-title" data-i18n="contact.title">Keep making the projects real.</h2>
+                <p data-i18n="contact.copy">Explore the source on GitHub, open an issue, or try TrainBrain directly. You can also reach me at h1317483655@gmail.com.</p>
                 <div class="copy-feedback" data-copy-feedback aria-live="polite"></div>
             </div>
             <div class="actions">
                 <a class="button" href="https://github.com/AlionFan" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-github"></i>
-                    GitHub
+                    <span>GitHub</span>
                 </a>
                 <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=h1317483655%40gmail.com" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-envelope"></i>
-                    Gmail
+                    <span>Gmail</span>
                 </a>
                 <button class="button" type="button" data-copy-email="h1317483655@gmail.com">
                     <i class="fa-solid fa-copy"></i>
-                    复制邮箱
+                    <span data-i18n="contact.copyEmail">Copy email</span>
                 </button>
                 <a class="button" href="https://train-brain-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-brain"></i>
-                    TrainBrain
+                    <span>TrainBrain</span>
                 </a>
             </div>
         </section>
     </main>
 
     <footer class="page footer">
-        <span>© 2026 AlionFan. Built for GitHub Pages.</span>
+        <span data-i18n="footer.copy">© 2026 AlionFan. Built for GitHub Pages.</span>
     </footer>
 
     <script>
+        const languageStorageKey = "alionfan-language";
+        const supportedLanguages = ["en", "zh"];
+
+        const translations = {
+            en: {
+                "meta.title": "AlionFan | GitHub Page",
+                "meta.description": "AlionFan's GitHub Page: AI practice, robotics control, data analysis, and the TrainBrain cognitive training project.",
+                "meta.ogDescription": "AI practice, robotics control, data analysis, and the TrainBrain cognitive training project.",
+                "nav.aria": "Main navigation",
+                "nav.homeAria": "Back to home",
+                "nav.skills": "Focus",
+                "nav.repos": "Repos",
+                "nav.contact": "Contact",
+                "language.aria": "Language",
+                "language.enAria": "Switch to English",
+                "language.zhAria": "Switch to Chinese",
+                "hero.eyebrow": "GitHub Page · AI / Robotics / Product",
+                "hero.lead": "I turn AI learning, robotics control, data visualization, and cognitive training into a working portfolio. This page highlights public GitHub projects and TrainBrain, a website for focus and memory training.",
+                "hero.trainbrainAction": "Try TrainBrain",
+                "hero.githubAction": "Visit GitHub",
+                "hero.emailAction": "Email with Gmail",
+                "stats.aria": "Public GitHub overview",
+                "stats.repos": "Public Repos",
+                "stats.followers": "Followers",
+                "stats.languages": "Languages Used",
+                "profile.aria": "Profile summary",
+                "profile.title": "Builder with a research habit",
+                "profile.copy": "Focused on AI tools, computer vision, motion simulation, robotics control, and product experiences that help people train abilities over time.",
+                "preview.aria": "Open the TrainBrain website",
+                "preview.alt": "TrainBrain homepage preview",
+                "preview.caption": "TrainBrain live preview",
+                "trainbrain.kicker": "Featured Work",
+                "trainbrain.title": "TrainBrain: focus and memory training website",
+                "trainbrain.summary": "TrainBrain is a structured cognitive training and performance analysis platform organized around practice, challenges, dashboards, rankings, and a personal profile.",
+                "trainbrain.projectTitle": "Turning training into a system you can keep advancing",
+                "trainbrain.projectMeta": "34 levels · 7 cognitive categories · XP and achievements",
+                "trainbrain.projectCopy": "From the public pages, TrainBrain uses attention, memory, logic and calculation, reaction, executive function, processing speed, and spatial ability as training paths, with level challenges, daily goals, leveling, and leaderboards to keep progress visible.",
+                "trainbrain.featurePathTitle": "Level path",
+                "trainbrain.featurePathCopy": "34 levels build up step by step, making progress easier to read.",
+                "trainbrain.featureTrainingTitle": "Multidimensional training",
+                "trainbrain.featureTrainingCopy": "Covers seven ability areas, including attention, memory, logic, and reaction.",
+                "trainbrain.featureFeedbackTitle": "Feedback loop",
+                "trainbrain.featureFeedbackCopy": "XP, achievements, rankings, and dashboards turn results into feedback.",
+                "trainbrain.featureDailyTitle": "Daily challenges",
+                "trainbrain.featureDailyCopy": "Daily goals help maintain rhythm for long-term training.",
+                "trainbrain.startAction": "Start training",
+                "trainbrain.dashboardAction": "View dashboard",
+                "trainbrain.focusAria": "TrainBrain product focus",
+                "trainbrain.focusRouteTitle": "Readable growth path",
+                "trainbrain.focusRouteCopy": "Training is not a one-off test; it is a level structure that keeps moving forward.",
+                "trainbrain.focusDataTitle": "Analyzable performance data",
+                "trainbrain.focusDataCopy": "Dashboards turn training results into personal performance feedback.",
+                "trainbrain.focusPersonalTitle": "Sustainable personal experience",
+                "trainbrain.focusPersonalCopy": "Sign up, login, profiles, and leaderboards support long-term use.",
+                "trainbrain.challengeAction": "Open challenges",
+                "skills.kicker": "Focus Areas",
+                "skills.title": "Project directions",
+                "skills.summary": "Across the public repos, the work spans Python experiments, robotics control, data visualization, web tools, and AI coursework practice.",
+                "skills.roboticsTitle": "Robotics and control",
+                "skills.roboticsCopy": "Little_Arm and ArmLib show small robotic arm design, simulation, and CAN Bus control work.",
+                "skills.aiTitle": "AI and vision practice",
+                "skills.aiCopy": "CV_Class, mmsegmentation, and related repos document computer vision and AI systems practice.",
+                "skills.motionTitle": "Motion and simulation",
+                "skills.motionCopy": "FanMotion and PhysicsMotionSimulation point toward motion, physics simulation, and Python experiments.",
+                "skills.productTitle": "Products and tools",
+                "skills.productCopy": "TrainBrain, speech2text, and DataAnalysis show an interest in turning training and data work into usable tools.",
+                "repos.kicker": "GitHub Projects",
+                "repos.title": "Selected public repositories",
+                "repos.summary": "The page loads the public GitHub API first and falls back to a local snapshot if that request fails.",
+                "timeline.kicker": "Now",
+                "timeline.title": "Current build focus",
+                "timeline.trainbrainTitle": "Refine the cognitive training product",
+                "timeline.trainbrainCopy": "Continue improving the experience around training categories, levels, data feedback, and long-term motivation.",
+                "timeline.fanmotionTitle": "Motion-related Python work",
+                "timeline.fanmotionCopy": "A new public repo is in place for motion, simulation, or AI experiment work.",
+                "timeline.armlibTitle": "Robotic arm control library",
+                "timeline.armlibCopy": "A control library around ArmRobot and CAN Bus that connects hardware control with engineering practice.",
+                "contact.title": "Keep making the projects real.",
+                "contact.copy": "Explore the source on GitHub, open an issue, or try TrainBrain directly. You can also reach me at h1317483655@gmail.com.",
+                "contact.copyEmail": "Copy email",
+                "footer.copy": "© 2026 AlionFan. Built for GitHub Pages.",
+                "date.continuing": "Continuously updated",
+                "repo.defaultDescription": "Public GitHub repository. Project details are still being refined.",
+                "copy.copiedButton": "Copied",
+                "copy.success": "Copied email: ",
+                "copy.failure": "Copy failed. Please copy manually: "
+            },
+            zh: {
+                "meta.title": "AlionFan | GitHub Page",
+                "meta.description": "AlionFan 的 GitHub 主页：AI 实践、机器人控制、数据分析，以及 TrainBrain 认知训练项目。",
+                "meta.ogDescription": "AI 实践、机器人控制、数据分析，以及 TrainBrain 认知训练项目。",
+                "nav.aria": "主导航",
+                "nav.homeAria": "回到首页",
+                "nav.skills": "方向",
+                "nav.repos": "仓库",
+                "nav.contact": "联系",
+                "language.aria": "语言",
+                "language.enAria": "切换到英文",
+                "language.zhAria": "切换到中文",
+                "hero.eyebrow": "GitHub Page · AI / 机器人 / 产品",
+                "hero.lead": "我在把 AI 学习、机器人控制、数据可视化和认知训练产品串成可运行的作品集。这里展示 GitHub 上的公开项目，也重点记录 TrainBrain 这个专注力与记忆力训练网站。",
+                "hero.trainbrainAction": "体验 TrainBrain",
+                "hero.githubAction": "访问 GitHub",
+                "hero.emailAction": "Gmail 发邮件",
+                "stats.aria": "GitHub 公开概览",
+                "stats.repos": "公开仓库",
+                "stats.followers": "关注者",
+                "stats.languages": "使用语言",
+                "profile.aria": "个人信息",
+                "profile.title": "带着研究习惯做产品",
+                "profile.copy": "关注 AI 工具、计算机视觉、运动仿真、机器人控制，以及能长期训练能力的产品体验。",
+                "preview.aria": "打开 TrainBrain 网站",
+                "preview.alt": "TrainBrain 网站首页预览",
+                "preview.caption": "TrainBrain 在线预览",
+                "trainbrain.kicker": "Featured Work",
+                "trainbrain.title": "TrainBrain：专注力和记忆力训练网站",
+                "trainbrain.summary": "TrainBrain 是一个结构化认知训练与个人表现分析平台，围绕训练、闯关、仪表盘、排行和个人中心组织体验。",
+                "trainbrain.projectTitle": "把训练做成可以持续推进的系统",
+                "trainbrain.projectMeta": "34 个关卡 · 7 大认知类别 · XP 与成就",
+                "trainbrain.projectCopy": "从公开页面可以看到，TrainBrain 以注意力、记忆力、逻辑计算、反应能力、执行功能、处理速度和空间能力为训练入口，用闯关挑战、每日目标、等级系统和排行榜提升持续使用动力。",
+                "trainbrain.featurePathTitle": "闯关路径",
+                "trainbrain.featurePathCopy": "34 个关卡逐级提升，让训练进度更清晰。",
+                "trainbrain.featureTrainingTitle": "多维训练",
+                "trainbrain.featureTrainingCopy": "覆盖注意力、记忆力、逻辑与反应等 7 类能力。",
+                "trainbrain.featureFeedbackTitle": "反馈机制",
+                "trainbrain.featureFeedbackCopy": "XP、成就、排行和仪表盘形成表现闭环。",
+                "trainbrain.featureDailyTitle": "每日挑战",
+                "trainbrain.featureDailyCopy": "用每日目标维持节奏，适合长期训练。",
+                "trainbrain.startAction": "开始训练",
+                "trainbrain.dashboardAction": "查看仪表盘",
+                "trainbrain.focusAria": "TrainBrain 产品重点",
+                "trainbrain.focusRouteTitle": "可理解的成长路线",
+                "trainbrain.focusRouteCopy": "训练不是一次性测试，而是连续推进的关卡结构。",
+                "trainbrain.focusDataTitle": "可分析的表现数据",
+                "trainbrain.focusDataCopy": "仪表盘将训练结果转成个人表现反馈。",
+                "trainbrain.focusPersonalTitle": "可持续的个人体验",
+                "trainbrain.focusPersonalCopy": "注册、登录、个人中心和排行榜支撑长期使用。",
+                "trainbrain.challengeAction": "打开闯关挑战",
+                "skills.kicker": "Focus Areas",
+                "skills.title": "项目方向",
+                "skills.summary": "从公开仓库看，项目覆盖 Python 实验、机器人控制、数据可视化、Web 工具和 AI 课程实践。",
+                "skills.roboticsTitle": "机器人与控制",
+                "skills.roboticsCopy": "Little_Arm、ArmLib 体现了小型机械臂设计、仿真和 CAN Bus 控制方向。",
+                "skills.aiTitle": "AI 与视觉实践",
+                "skills.aiCopy": "CV_Class、mmsegmentation 等仓库记录计算机视觉和 AI 系统综合实践。",
+                "skills.motionTitle": "运动与仿真",
+                "skills.motionCopy": "FanMotion、PhysicsMotionSimulation 指向运动、物理模拟和 Python 实验。",
+                "skills.productTitle": "产品与工具",
+                "skills.productCopy": "TrainBrain、speech2text、DataAnalysis 展示把能力训练和数据处理做成可用工具的兴趣。",
+                "repos.kicker": "GitHub Projects",
+                "repos.title": "精选公开仓库",
+                "repos.summary": "页面会优先加载 GitHub 公开 API，失败时使用本地快照内容展示。",
+                "timeline.kicker": "Now",
+                "timeline.title": "近期建设重点",
+                "timeline.trainbrainTitle": "完善认知训练产品",
+                "timeline.trainbrainCopy": "围绕训练类别、关卡、数据反馈和长期激励继续打磨体验。",
+                "timeline.fanmotionTitle": "运动相关 Python 项目",
+                "timeline.fanmotionCopy": "新的公开仓库已经创建，适合作为运动、仿真或 AI 实验的主线项目。",
+                "timeline.armlibTitle": "机械臂控制库",
+                "timeline.armlibCopy": "围绕 ArmRobot 与 CAN Bus 的控制库，连接硬件控制和工程实践。",
+                "contact.title": "把项目继续做实。",
+                "contact.copy": "欢迎从 GitHub 查看源码、提交 issue，或者直接体验 TrainBrain。也可以通过 h1317483655@gmail.com 联系我。",
+                "contact.copyEmail": "复制邮箱",
+                "footer.copy": "© 2026 AlionFan. Built for GitHub Pages.",
+                "date.continuing": "持续更新",
+                "repo.defaultDescription": "GitHub 公开仓库，项目说明持续完善中。",
+                "copy.copiedButton": "已复制",
+                "copy.success": "已复制邮箱：",
+                "copy.failure": "复制失败，请手动复制："
+            }
+        };
+
+        const localizedRepoDescriptions = {
+            FanMotion: {
+                en: "New Python motion experiments, suitable as a main line for motion, simulation, or AI practice.",
+                zh: "新的 Python 运动方向实验仓库，适合作为动作、仿真或 AI 实践主线。"
+            },
+            ArmLib: {
+                en: "A library for ArmRobot control over CAN Bus.",
+                zh: "面向 ArmRobot 的 CAN Bus 机械臂控制库。"
+            },
+            Little_Arm: {
+                en: "A 3D-printed small robotic arm design and simulation project.",
+                zh: "3D 打印的小型机械臂设计与仿真。"
+            },
+            DataAnalysis: {
+                en: "Visualization tooling for .dat format files.",
+                zh: "Dat 格式文件可视化工具。"
+            },
+            speech2text: {
+                en: "Convert voice to text using an LLM API.",
+                zh: "使用 LLM API 将语音转换为文本。"
+            },
+            PhysicsMotionSimulation: {
+                en: "Python experiments for physics-based motion simulation.",
+                zh: "物理运动模拟相关 Python 实验。"
+            },
+            mmsegmentation: {
+                en: "AI systems practice coursework built around computer vision segmentation.",
+                zh: "人工智能系统综合实践中的计算机视觉分割项目。"
+            },
+            StudentSelectCourse: {
+                en: "A course selection practice project for student workflows.",
+                zh: "学生选课流程练习项目。"
+            }
+        };
+
         const fallbackProfile = {
             public_repos: 15,
             followers: 1
@@ -1025,7 +1236,7 @@
             {
                 name: "FanMotion",
                 html_url: "https://github.com/AlionFan/FanMotion",
-                description: "新的 Python 运动方向实验仓库，适合作为动作、仿真或 AI 实践主线。",
+                description: localizedRepoDescriptions.FanMotion.en,
                 language: "Python",
                 stargazers_count: 0,
                 updated_at: "2026-06-06T07:01:28Z"
@@ -1033,7 +1244,7 @@
             {
                 name: "ArmLib",
                 html_url: "https://github.com/AlionFan/ArmLib",
-                description: "Armlib is a library for ArmRobot Control with CanBus.",
+                description: localizedRepoDescriptions.ArmLib.en,
                 language: "C++",
                 stargazers_count: 1,
                 updated_at: "2026-06-06T06:55:33Z"
@@ -1041,7 +1252,7 @@
             {
                 name: "Little_Arm",
                 html_url: "https://github.com/AlionFan/Little_Arm",
-                description: "3D 打印的小型机械臂设计与仿真。",
+                description: localizedRepoDescriptions.Little_Arm.en,
                 language: "Python",
                 stargazers_count: 2,
                 updated_at: "2026-06-04T00:23:01Z"
@@ -1049,7 +1260,7 @@
             {
                 name: "DataAnalysis",
                 html_url: "https://github.com/AlionFan/DataAnalysis",
-                description: "Dat format file visualize.",
+                description: localizedRepoDescriptions.DataAnalysis.en,
                 language: "Python",
                 stargazers_count: 0,
                 updated_at: "2026-04-24T04:55:39Z"
@@ -1057,7 +1268,7 @@
             {
                 name: "speech2text",
                 html_url: "https://github.com/AlionFan/speech2text",
-                description: "Convert voice to text using LLM API.",
+                description: localizedRepoDescriptions.speech2text.en,
                 language: "JavaScript",
                 stargazers_count: 0,
                 updated_at: "2026-03-12T04:23:31Z"
@@ -1065,7 +1276,7 @@
             {
                 name: "mmsegmentation",
                 html_url: "https://github.com/AlionFan/mmsegmentation",
-                description: "首都师范大学人工智能系统综合实践大作业。",
+                description: localizedRepoDescriptions.mmsegmentation.en,
                 language: "Python",
                 stargazers_count: 1,
                 updated_at: "2025-12-14T14:51:37Z"
@@ -1073,7 +1284,6 @@
         ];
 
         const repoPriority = ["FanMotion", "ArmLib", "Little_Arm", "DataAnalysis", "speech2text", "PhysicsMotionSimulation", "mmsegmentation", "StudentSelectCourse"];
-        const fallbackDescriptions = new Map(fallbackRepos.map((repo) => [repo.name, repo.description]));
         const languageColors = {
             Python: "#3572a5",
             "C++": "#f34b7d",
@@ -1083,9 +1293,101 @@
             "Jupyter Notebook": "#da5b0b"
         };
 
+        function normalizeLanguage(language) {
+            return String(language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+        }
+
+        function readStoredLanguage() {
+            try {
+                const storedLanguage = window.localStorage.getItem(languageStorageKey);
+                return supportedLanguages.includes(storedLanguage) ? storedLanguage : null;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function writeStoredLanguage(language) {
+            try {
+                window.localStorage.setItem(languageStorageKey, language);
+            } catch (error) {
+                // Language switching still works for the current visit when storage is blocked.
+            }
+        }
+
+        function detectSystemLanguage() {
+            const browserLanguages = navigator.languages && navigator.languages.length
+                ? navigator.languages
+                : [navigator.language];
+
+            return browserLanguages.some((language) => normalizeLanguage(language) === "zh") ? "zh" : "en";
+        }
+
+        let currentLanguage = readStoredLanguage() || detectSystemLanguage();
+        let currentProfile = fallbackProfile;
+        let currentRepos = fallbackRepos;
+
+        function t(key) {
+            return translations[currentLanguage][key] || translations.en[key] || key;
+        }
+
+        function renderCurrentData() {
+            renderStats(currentProfile, currentRepos);
+            renderRepos(currentRepos);
+        }
+
+        function applyTranslations() {
+            document.documentElement.lang = currentLanguage === "zh" ? "zh-CN" : "en";
+            document.title = t("meta.title");
+
+            document.querySelectorAll("[data-i18n]").forEach((element) => {
+                element.textContent = t(element.dataset.i18n);
+            });
+
+            document.querySelectorAll("[data-i18n-content]").forEach((element) => {
+                element.setAttribute("content", t(element.dataset.i18nContent));
+            });
+
+            document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+                element.setAttribute("alt", t(element.dataset.i18nAlt));
+            });
+
+            document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+                element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
+            });
+
+            document.querySelectorAll("[data-lang-choice]").forEach((button) => {
+                button.setAttribute("aria-pressed", String(button.dataset.langChoice === currentLanguage));
+            });
+
+            renderCurrentData();
+        }
+
+        function setupLanguageSwitcher() {
+            document.querySelectorAll("[data-lang-choice]").forEach((button) => {
+                button.addEventListener("click", () => {
+                    const nextLanguage = button.dataset.langChoice;
+                    if (!supportedLanguages.includes(nextLanguage) || nextLanguage === currentLanguage) return;
+
+                    currentLanguage = nextLanguage;
+                    writeStoredLanguage(nextLanguage);
+                    applyTranslations();
+                });
+            });
+
+            window.addEventListener("languagechange", () => {
+                if (readStoredLanguage()) return;
+
+                const detectedLanguage = detectSystemLanguage();
+                if (detectedLanguage === currentLanguage) return;
+
+                currentLanguage = detectedLanguage;
+                applyTranslations();
+            });
+        }
+
         function formatDate(value) {
-            if (!value) return "持续更新";
-            return new Intl.DateTimeFormat("zh-CN", {
+            if (!value) return t("date.continuing");
+            return new Intl.DateTimeFormat(currentLanguage === "zh" ? "zh-CN" : "en-US", {
                 year: "numeric",
                 month: "short",
                 day: "numeric"
@@ -1093,14 +1395,19 @@
         }
 
         function getDescription(repo) {
-            return repo.description || fallbackDescriptions.get(repo.name) || "GitHub 公开仓库，项目说明持续完善中。";
+            const localizedDescription = localizedRepoDescriptions[repo.name]?.[currentLanguage];
+            return localizedDescription || repo.description || t("repo.defaultDescription");
         }
 
         function renderStats(profile, repos) {
             const languages = new Set(repos.map((repo) => repo.language).filter(Boolean));
-            document.querySelector('[data-stat="repos"]').textContent = profile.public_repos || fallbackProfile.public_repos;
-            document.querySelector('[data-stat="followers"]').textContent = profile.followers ?? fallbackProfile.followers;
-            document.querySelector('[data-stat="langs"]').textContent = `${Math.max(languages.size, 7)}+`;
+            const repoCount = document.querySelector('[data-stat="repos"]');
+            const followers = document.querySelector('[data-stat="followers"]');
+            const languageCount = document.querySelector('[data-stat="langs"]');
+
+            if (repoCount) repoCount.textContent = profile.public_repos || fallbackProfile.public_repos;
+            if (followers) followers.textContent = profile.followers ?? fallbackProfile.followers;
+            if (languageCount) languageCount.textContent = `${Math.max(languages.size, 7)}+`;
         }
 
         function sortRepos(repos) {
@@ -1126,6 +1433,8 @@
 
         function renderRepos(repos) {
             const grid = document.getElementById("repo-grid");
+            if (!grid) return;
+
             grid.replaceChildren();
 
             sortRepos(repos).forEach((repo) => {
@@ -1175,8 +1484,9 @@
         }
 
         async function loadGitHub() {
-            renderStats(fallbackProfile, fallbackRepos);
-            renderRepos(fallbackRepos);
+            currentProfile = fallbackProfile;
+            currentRepos = fallbackRepos;
+            renderCurrentData();
 
             try {
                 const [profileResponse, reposResponse] = await Promise.all([
@@ -1190,8 +1500,9 @@
 
                 const profile = await profileResponse.json();
                 const repos = await reposResponse.json();
-                renderStats(profile, repos);
-                renderRepos(repos);
+                currentProfile = profile;
+                currentRepos = repos;
+                renderCurrentData();
             } catch (error) {
                 // Keep the local snapshot when GitHub API is unavailable.
             }
@@ -1223,6 +1534,17 @@
             throw new Error("Clipboard unavailable");
         }
 
+        function setIconButtonLabel(button, iconClass, labelKey) {
+            const icon = document.createElement("i");
+            icon.className = iconClass;
+
+            const label = document.createElement("span");
+            label.dataset.i18n = labelKey;
+            label.textContent = t(labelKey);
+
+            button.replaceChildren(icon, label);
+        }
+
         document.querySelectorAll("[data-copy-email]").forEach((button) => {
             button.addEventListener("click", async () => {
                 const email = button.getAttribute("data-copy-email");
@@ -1230,18 +1552,20 @@
 
                 try {
                     await copyText(email);
-                    button.innerHTML = '<i class="fa-solid fa-check"></i> 已复制';
-                    if (feedback) feedback.textContent = `已复制邮箱：${email}`;
+                    setIconButtonLabel(button, "fa-solid fa-check", "copy.copiedButton");
+                    if (feedback) feedback.textContent = `${t("copy.success")}${email}`;
                 } catch (error) {
-                    if (feedback) feedback.textContent = `复制失败，请手动复制：${email}`;
+                    if (feedback) feedback.textContent = `${t("copy.failure")}${email}`;
                 }
 
                 window.setTimeout(() => {
-                    button.innerHTML = '<i class="fa-solid fa-copy"></i> 复制邮箱';
+                    setIconButtonLabel(button, "fa-solid fa-copy", "contact.copyEmail");
                 }, 1800);
             });
         });
 
+        setupLanguageSwitcher();
+        applyTranslations();
         loadGitHub();
     </script>
 </body>
