@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlionFan | GitHub Page</title>
-    <meta name="description" content="AlionFan 的个人 GitHub Page：AI 实践、机器人控制、数据分析与 TrainBrain 认知训练项目。">
+    <meta name="description" content="AlionFan's GitHub Page: AI practice, robotics control, data analysis, and the TrainBrain cognitive training project.">
     <meta property="og:title" content="AlionFan | GitHub Page">
-    <meta property="og:description" content="AI 实践、机器人控制、数据分析与 TrainBrain 认知训练项目。">
+    <meta property="og:description" content="AI practice, robotics control, data analysis, and the TrainBrain cognitive training project.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alionfan.github.io/">
     <meta property="og:image" content="./trainbrain-preview.png">
@@ -657,6 +657,37 @@
             .timeline {
                 grid-template-columns: 1fr;
             }
+        }
+
+        .lang-switcher {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--surface);
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .lang-switcher button {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            cursor: pointer;
+            transition: background 150ms ease, color 150ms ease;
+        }
+
+        .lang-switcher button[aria-pressed="true"] {
+            background: var(--blue);
+            color: white;
+        }
+
+        .lang-switcher button:hover:not([aria-pressed="true"]) {
+            background: var(--surface-2);
+            color: var(--ink);
         }
 
         @media (max-width: 700px) {
